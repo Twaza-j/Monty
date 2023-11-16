@@ -30,7 +30,7 @@ void process_lines(FILE *file, stack_t *stack)
 
 				argument = strtok(NULL, " \n");
 				if (argument == NULL || !is_valid_integer(argument))
-					err(5, line, stack, file, NULL,line_number);
+					err(5, line, stack, file, NULL, line_number);
 				value = atoi(argument);
 				push(&stack, line_number, value);
 			}
