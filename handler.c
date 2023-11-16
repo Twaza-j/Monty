@@ -3,11 +3,16 @@
 /**
  * err - Custom error handling function
  * @error_code: Error code to determine the type of error
- * @...: Variable arguments depending on the error_code
+ * @line: Line from opcode file
+ * @stack: The stack
+ * @file: The file containing the opcode
+ * @reason: Used for print error
+ * @ln: Line number
  *
  * Return: Nothing (exits with EXIT_FAILURE)
  */
-void err(int error_code, char *line, stack_t *stack, FILE *file, char *reason, int ln)
+void err(int error_code, char *line, stack_t *stack,
+		FILE *file, char *reason, int ln)
 {
 	switch (error_code)
 	{
