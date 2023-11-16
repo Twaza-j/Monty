@@ -14,7 +14,7 @@
 * @n: integer
 * @prev: points to the previous element of the stack (or queue)
 * @next: points to the next element of the stack (or queue)
-* 
+*
 * Description: doubly linked list node structure
 * for stack, queues, LIFO, FIFO
 */
@@ -29,7 +29,7 @@ typedef struct stack_s
 * struct instruction_s - opcode and its function
 * @opcode: the opcode
 * @f: function to handle the opcode
-* 
+*
 * Description: opcode and its function
 * for stack, queues, LIFO, FIFO
 */
@@ -43,11 +43,10 @@ typedef struct instruction_s
 void push(stack_t **stack, unsigned int line_number, int value);
 void pall(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
-void err(int error_code, char *line, stack_t *stack, FILE *file, char *reason, int ln);
+void err(int err_cod, char *l, stack_t *stc, FILE *f, char *reason, int ln);
 void clean(char *line, stack_t *stack, FILE *file);
 void process_lines(FILE *file, stack_t *stack);
 void pint(stack_t **stack, unsigned int line_number);
 int is_valid_integer(const char *argument);
-void pop(stack_t **stack, unsigned int line_number);
 
-#endif
+#endif /* MONTY_H */
