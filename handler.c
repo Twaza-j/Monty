@@ -34,6 +34,8 @@ void err(int error_code, char *line, stack_t *stack,
 		case 6:
 			fprintf(stderr, "L%d: can't pint, stack empty\n", ln);
 			break;
+		case 7:
+			fprintf(stderr, "L%d: can't pop an empty stack\n", ln);
 		default:
 			break;
 	}

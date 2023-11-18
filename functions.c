@@ -53,10 +53,31 @@ void pall(stack_t **stack, unsigned int line_number)
  */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
-
 	if (*stack == NULL)
-		err(6, NULL, *stack, NULL, NULL, 0);
+		err(6, NULL, *stack, NULL, NULL, line_number);
 
 	printf("%d\n", (*stack)->n);
+}
+
+/**
+ * pop - Removes the top element of the stack
+ * @stack: A pointer to a pointer to the stack
+ * @line_number: Number of line where the interpreter been
+ *
+ * Return: Nothing
+ */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+
+	if (*stack == NULL)
+		err(7, NULL, *stack, NULL, NULL, line_number);
+
+	temp = *stack;
+	*stack = (*stack)->next;
+
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+
+	free(temp);
 }
