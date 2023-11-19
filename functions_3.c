@@ -3,7 +3,7 @@
 /* Math operations part 2 */
 
 /**
- * mod - Computes the rest of the division of the second top element
+ * mod - Calculates the rest of the division of the second top element
  * of the stack by the top element of the stack.
  * @stack: The stack
  * @line_number: Line number where the mod opcode will be interpreted
