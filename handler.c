@@ -40,6 +40,9 @@ void err(int error_code, char *line, stack_t *stack,
 		case 8:
 			fprintf(stderr, "L%d: can't swap, stack too short\n", ln);
 			break;
+		case 9:
+			fprintf(stderr, "L%d: can't add, stack too short\n", ln);
+			break;
 		default:
 			break;
 	}
