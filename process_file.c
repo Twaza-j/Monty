@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * process_lines - Process every line
+ * process_lines - Processes every line
  * @file: File to be processed
  * @stack: A pointer to the stack
  *
