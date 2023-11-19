@@ -102,3 +102,31 @@ void divide(stack_t **stack, unsigned int line_number)
 
 	pop(stack, line_number);
 }
+
+/**
+ * mul - Multiplies the second top element of the stack with
+ * the top element of the stack
+ * @stack: The stack
+ * @line_number: Line number where the mul opcode will be interpreted
+ *
+ * Return: Nothing
+ */
+void mul(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	unsigned int len = 0;
+
+	temp = *stack;
+	while (temp != NULL)
+	{
+		temp = temp->next;
+		len++;
+	}
+
+	if (len < 2)
+		err_handle_more(13, NULL, *stack, NULL, NULL, line_number);
+
+	(*stack)->next->n = (*stack)->next->n * (*stack)->n;
+
+	pop(stack, line_number);
+}

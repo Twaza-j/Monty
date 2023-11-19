@@ -77,6 +77,9 @@ void err_handle_more(int error_code, char *line, stack_t *stack,
 		case 12:
 			fprintf(stderr, "L%d: division by zero\n", ln);
 			break;
+		case 13:
+			fprintf(stderr, "L%d: can't mul, stack too short\n", ln);
+			break;
 		default:
 			break;
 	}
