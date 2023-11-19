@@ -20,6 +20,8 @@ void (*get_op_f(char *opcode))(stack_t **stack, unsigned int line_number)
 		{"div", divide},
 		{"mul", mul},
 		{"mod", mod},
+		{"pchar", pchar},
+		{"pstr", pstr},
 		{NULL, NULL}
 	};
 
