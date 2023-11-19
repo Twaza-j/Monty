@@ -80,6 +80,9 @@ void err_handle_more(int error_code, char *line, stack_t *stack,
 		case 13:
 			fprintf(stderr, "L%d: can't mul, stack too short\n", ln);
 			break;
+		case 14:
+			fprintf(stderr, "L%d: can't mod, stack too short\n", ln);
+			break;
 		default:
 			break;
 	}
