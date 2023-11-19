@@ -42,8 +42,6 @@ void nop(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 }
 
-/* Math functions part 1 */
-
 /**
  * sub - Substructs the top element from the second top element in the stack
  * @stack: The stack
