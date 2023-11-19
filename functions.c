@@ -81,3 +81,31 @@ void pop(stack_t **stack, unsigned int line_number)
 
 	free(temp);
 }
+
+/**
+ * swap - Swaps the top two elements of the stack
+ * @stack: The stack
+ * @line_number: The line number inside opcode file
+ *
+ * Return: Nothing
+ */
+void swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp_ptr;
+	unsigned int len = 0;
+	int temp_n;
+
+	temp_ptr = *stack;
+	while (temp_ptr != NULL)
+	{
+		temp_ptr = temp_ptr->next;
+		len++;
+	}
+
+	if (len < 2)
+		err(8, NULL, *stack, NULL, NULL, line_number);
+
+	temp_n = (*stack)->n;
+	(*stack)->n = (*stack)->next->n;
+	(*stack)->next->n = temp_n;
+}

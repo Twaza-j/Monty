@@ -36,6 +36,10 @@ void err(int error_code, char *line, stack_t *stack,
 			break;
 		case 7:
 			fprintf(stderr, "L%d: can't pop an empty stack\n", ln);
+			break;
+		case 8:
+			fprintf(stderr, "L%d: can't swap, stack too short\n", ln);
+			break;
 		default:
 			break;
 	}
