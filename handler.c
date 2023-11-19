@@ -43,6 +43,40 @@ void err(int error_code, char *line, stack_t *stack,
 		case 9:
 			fprintf(stderr, "L%d: can't add, stack too short\n", ln);
 			break;
+		case 10:
+			fprintf(stderr, "L%d: can't sub, stack too short\n", ln);
+			break;
+		default:
+			break;
+	}
+	clean(line, stack, file);
+	exit(EXIT_FAILURE);
+}
+
+/**
+ * arr_handle_more - Handles more errors
+ * @error_code: Error code to determine the type of error
+ * @line: Line from opcode file
+ * @stack: The stack
+ * @file: The file containing the opcode
+ * @reason: Used for print error
+ * @ln: Line number
+ *
+ * Return: Nothing (exits with EXIT_FAILURE)
+ */
+void err_handle_more(int error_code, char *line, stack_t *stack,
+		FILE *file, char *reason, int ln)
+{
+	(void)reason;
+
+	switch (error_code)
+	{
+		case 11:
+			fprintf(stderr, "L%d: can't div, stack too short\n", ln);
+			break;
+		case 12:
+			fprintf(stderr, "L%d: division by zero\n", ln);
+			break;
 		default:
 			break;
 	}

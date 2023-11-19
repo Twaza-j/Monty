@@ -44,6 +44,7 @@ void push(stack_t **stack, unsigned int line_number, int value);
 void pall(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 void err(int err_cod, char *l, stack_t *stc, FILE *f, char *reason, int ln);
+void err_handle_more(int, char *, stack_t *, FILE *, char *, int);
 void clean(char *line, stack_t *stack, FILE *file);
 void process_lines(FILE *file, stack_t *stack);
 void pint(stack_t **stack, unsigned int line_number);
@@ -53,6 +54,7 @@ void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
-
+void sub(stack_t **stack, unsigned int line_number);
+void divide(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_H */

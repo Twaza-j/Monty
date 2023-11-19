@@ -43,3 +43,62 @@ void nop(stack_t **stack, unsigned int line_number)
 }
 
 /* Math functions part 1 */
+
+/**
+ * sub - Substructs the top element from the second top element in the stack
+ * @stack: The stack
+ * @line_number: The line number where the opcode sub exist in the opcode
+ * file
+ *
+ * Return: Nothing
+ */
+void sub(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	unsigned int len = 0;
+
+	temp = *stack;
+
+	while (temp != NULL)
+	{
+		temp = temp->next;
+		len++;
+	}
+
+	if (len < 2)
+		err(10, NULL, *stack, NULL, NULL, line_number);
+
+	(*stack)->next->n = (*stack)->next->n - (*stack)->n;
+
+	pop(stack, line_number);
+}
+
+/**
+ * divide - Divides the second top element by the first top element
+ * @stack: The stack
+ * @line_number: Line number where the div opcode interpreted
+ *
+ * Return: Nothing
+ */
+void divide(stack_t **stack, unsigned int line_number)
+{
+	stack_t *temp;
+	unsigned int len = 0;
+
+	temp = *stack;
+	while (temp != NULL)
+	{
+		temp = temp->next;
+		len++;
+	}
+
+	if (len < 2)
+		err_handle_more(11, NULL, *stack, NULL, NULL, line_number);
+
+	if ((*stack)->n == 0)
+		err_handle_more(12, NULL, *stack, NULL, NULL, line_number);
+
+	(*stack)->next->n = (*stack)->next->n / (*stack)->n;
+
+	pop(stack, line_number);
+}
