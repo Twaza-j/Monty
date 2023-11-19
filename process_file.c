@@ -13,12 +13,15 @@ void process_lines(FILE *file, stack_t *stack)
 	unsigned int line_number = 0;
 	ssize_t read;
 
-	read = getline(&line, &len, file);
+	/* read = getline(&line, &len, file); */
 
-	while (read > 0)
+	while ((read = getline(&line, &len, file)) > 0)
 	{
 		line_number++;
 		opcode = strtok(line, " \t\n");
+
+		if (opcode != NULL && opcode[0] == '#')
+			continue;
 
 		while (opcode != NULL)
 		{
@@ -35,17 +38,14 @@ void process_lines(FILE *file, stack_t *stack)
 				push(&stack, line_number, value);
 			}
 			else if (func == NULL)
-			{
 				err(3, line, stack, file, opcode, line_number);
-			}
 			else
 				func(&stack, line_number);
 
 			opcode = NULL;
 		}
-		read = getline(&line, &len, file);
+	/*	read = getline(&line, &len, file); */
 	}
-
 	clean(line, stack, file);
 }
 
